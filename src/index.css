@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    /* White */
+    --foreground: 224 71.4% 4.1%;
+    /* Dark Blue/Black */
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+
+    --primary: 10 90% 55%;
+    /* Reddish Orange */
+    --primary-foreground: 355 0% 100%;
+    /* White */
+
+    --secondary: 180 70% 35%;
+    /* Deep Teal */
+    --secondary-foreground: 0 0% 100%;
+    /* White */
+
+    --muted: 220 14.3% 95.9%;
+    /* Light Gray */
+    --muted-foreground: 220 8.9% 46.1%;
+    /* Medium Gray */
+
+    --accent: 45 100% 50%;
+    /* Bright Yellow */
+    --accent-foreground: 224 71.4% 4.1%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 25 95% 53%;
+    /* Vibrant Orange for focus rings */
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 25 95% 53%;
+    --primary-foreground: 355 0% 100%;
+
+    --secondary: 180 70% 35%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+
+    --accent: 45 100% 50%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 25 95% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom scrollbar for a more modern look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.7);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+/* Glassmorphism Card Style Example */
+.glassmorphic-card {
+  background: rgba(255, 255, 255, 0.1);
+  /* Adjust alpha for transparency */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* For Safari */
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* Subtle border */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dark .glassmorphic-card {
+  background: rgba(30, 30, 40, 0.2);
+  /* Darker background for dark mode */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Section title styling */
+.section-title {
+  @apply text-3xl font-bold tracking-tight text-primary sm:text-4xl lg:text-5xl mb-4 text-center;
+}
+
+.section-subtitle {
+  @apply text-lg text-muted-foreground mb-12 text-center max-w-2xl mx-auto;
+}
+
+/* Gradient text */
+.text-gradient {
+  @apply text-primary;
+}
