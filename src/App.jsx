@@ -1,31 +1,24 @@
 
 import React from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import { Toaster } from '@/components/ui/toaster';
 import Navbar from '@/components/Navbar';
-import HeroSection from '@/components/HeroSection';
-import AboutUsSection from '@/components/AboutUsSection';
-import DifferentiatorsSection from '@/components/DifferentiatorsSection';
-import CSRSection from '@/components/CSRSection';
-import BusinessModelSection from '@/components/BusinessModelSection';
-import MilestonesSection from '@/components/MilestonesSection';
-import OpportunitiesSection from '@/components/OpportunitiesSection';
-import DataInsightsSection from '@/components/DataInsightsSection';
 import Footer from '@/components/Footer';
+import HomePage from '@/pages/HomePage';
+import ContactPage from '@/pages/ContactPage';
 
 function App() {
+  const location = useLocation();
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-background to-muted/30">
+    <div className="flex flex-col min-h-screen bg-background">
       <Navbar />
-      <main className="flex-grow">
-        <HeroSection />
-        <AboutUsSection />
-        <DifferentiatorsSection />
-        <CSRSection />
-        <BusinessModelSection />
-        <MilestonesSection />
-        <OpportunitiesSection />
-        <DataInsightsSection />
-      </main>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </AnimatePresence>
       <Footer />
       <Toaster />
     </div>

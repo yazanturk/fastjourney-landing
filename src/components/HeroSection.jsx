@@ -9,9 +9,9 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10">
       <div className="absolute inset-0 opacity-30">
         <img
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover "
           alt="Abstract background of delivery routes or city map"
-          src="https://images.unsplash.com/photo-1700941019917-731dc64ce685" />
+          src="https://modo3.com/thumbs/fit630x300/259129/1642344248/%D9%85%D8%A7_%D9%87%D9%88_%D8%A7%D9%84%D8%A7%D8%B2%D8%AF%D8%AD%D8%A7%D9%85_%D8%A7%D9%84%D9%85%D8%B1%D9%88%D8%B1%D9%8A_%D9%88%D9%85%D8%A7_%D8%A3%D8%B3%D8%A8%D8%A7%D8%A8%D9%87%D8%9F.jpg" />
       </div>
 
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Zap, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Zap, Facebook, Twitter, Instagram, Linkedin, X } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -33,10 +33,10 @@ const Footer = () => {
           <div>
             <p className="font-semibold text-foreground mb-4">Connect With Us</p>
             <div className="flex space-x-4 mb-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Facebook size={24} /></a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Twitter size={24} /></a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Instagram size={24} /></a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin size={24} /></a>
+              <a href="https://www.facebook.com/share/15fNaLco92/?mibextid=wwXIfr" className="text-muted-foreground hover:text-primary transition-colors"><Facebook size={24} /></a>
+              <a href="https://x.com/fastjourneyco?s=21" className="text-muted-foreground hover:text-primary transition-colors"><X size={24} /></a>
+              <a href="https://www.instagram.com/fastjourneyco?igsh=MXFudnNtdzhpcno0bA==" className="text-muted-foreground hover:text-primary transition-colors"><Instagram size={24} /></a>
+              <a href="https://www.linkedin.com/company/fastjourneyco/" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin size={24} /></a>
             </div>
             <p className="text-sm">Amman, Jordan</p>
             <p className="text-sm">contact@fastjourney.tst</p>
