@@ -1,6 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ─── Jaml Design System ──────────────────────────────────────────── */
+:root {
+  --jaml-plum:           #872857;
+  --jaml-plum-deep:      #5A1E3C;
+  --jaml-plum-deeper:    #47122C;
+  --jaml-plum-deepest:   #200613;
+  --jaml-plum-tint:      #FAF2F6;
+  --jaml-plum-tint-2:    #FBF3F7;
+  --jaml-plum-hint:      #D5B9C7;
+  --jaml-pink:           #EE2B5A;
+  --jaml-ink:            #000000;
+  --jaml-ink-2:          #606060;
+  --jaml-ink-3:          #6D6D6D;
+  --jaml-ink-4:          #919191;
+  --jaml-border:         #E2E2E2;
+  --jaml-border-2:       #E7E7E7;
+  --jaml-border-4:       #C7C7C7;
+  --jaml-surface:        #FFFFFF;
+  --jaml-font:           "IBM Plex Sans Arabic", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --jaml-shadow-glow:    0 4px 10px 0 rgba(135, 40, 87, 0.55);
+  --jaml-shadow-card:    0 4px 12px 0 rgba(158, 129, 145, 0.15);
+  --jaml-shadow-modal:   0 12px 30px -4px rgba(32, 6, 19, 0.18);
+  --jaml-radius-md:      10px;
+  --jaml-radius-pill:    16px;
+  --jaml-radius-sheet:   24px;
+  --jaml-grad-bg:        linear-gradient(160deg, #5A1E3C 0%, #872857 50%, #47122C 100%);
+}
 
 @layer base {
   :root {

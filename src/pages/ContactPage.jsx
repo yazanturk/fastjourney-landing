@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
 import { Mail, User, MessageSquare, Phone } from 'lucide-react';
+import { sendEmail } from '@/lib/emailService';
 
 const pageVariants = {
   initial: { opacity: 0, x: -100 },
@@ -37,34 +38,34 @@ const ContactPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      // Save to localStorage
-      try {
-        const existingMessages = JSON.parse(localStorage.getItem('contactMessages')) || [];
-        localStorage.setItem('contactMessages', JSON.stringify([...existingMessages, formData]));
-        
-        toast({
-          title: "Message Sent! 🚀",
-          description: "Thanks for reaching out! We'll get back to you soon.",
-          variant: "default",
-        });
-        setFormData({ name: '', email: '', phone: '', message: '' });
-      } catch (error) {
-        console.error("Failed to save message to localStorage", error);
-        toast({
-          title: "Uh oh! Something went wrong.",
-          description: "There was a problem sending your message. Please try again.",
-          variant: "destructive",
-        });
-      } finally {
-        setIsSubmitting(false);
-      }
-    }, 1500);
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'N/A'}\n\n${formData.message}`;
+    const html = `<p><strong>Name:</strong> ${formData.name}</p><p><strong>Email:</strong> ${formData.email}</p><p><strong>Phone:</strong> ${formData.phone || 'N/A'}</p><hr/><p>${formData.message.replace(/\n/g, '<br/>')}</p>`;
+
+    try {
+      await sendEmail({
+        to: 'yazan.turk@fastjourneyco.com',
+        subject: `Contact Form: ${formData.name}`,
+        body,
+        html,
+      });
+      toast({
+        title: 'Message Sent!',
+        description: "Thanks for reaching out! We'll get back to you soon.",
+      });
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch (error) {
+      toast({
+        title: 'Something went wrong.',
+        description: error.message || 'Please try again.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
